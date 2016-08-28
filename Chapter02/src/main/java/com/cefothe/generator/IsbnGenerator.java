@@ -1,6 +1,7 @@
 package com.cefothe.generator;
 
 import com.cefothe.interceptor.Loggable;
+import com.cefothe.qualifier.ThirtennDigits;
 
 import javax.inject.Inject;
 import java.util.Random;
@@ -9,6 +10,7 @@ import java.util.logging.Logger;
 /**
  * Created by cefothe on 28.08.16.
  */
+@ThirtennDigits
 public class IsbnGenerator implements  NumberGenerator {
 
     @Inject

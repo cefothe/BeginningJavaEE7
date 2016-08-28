@@ -12,6 +12,7 @@ import java.util.logging.Logger;
  */
 @EightDigits
 public class IssnGenerator implements NumberGenerator {
+
     @Inject
     private Logger logger;
 
