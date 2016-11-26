@@ -23,8 +23,13 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Email {
 
-    //TODO: remove static messages
     String message() default "Invalid mail";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
+
+    @Target({ElementType.TYPE,ElementType.METHOD,ElementType.FIELD})
+    @Retention(RetentionPolicy.RUNTIME)
+    @interface List{
+        Email[] value();
+    }
 }

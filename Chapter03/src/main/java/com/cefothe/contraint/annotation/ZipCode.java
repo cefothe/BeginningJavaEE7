@@ -19,4 +19,11 @@ public @interface ZipCode {
     String message() default "Invalid zip code";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
+
+    @Target({ElementType.FIELD,ElementType.METHOD,ElementType.CONSTRUCTOR,ElementType.ANNOTATION_TYPE})
+    @Retention(RetentionPolicy.RUNTIME)
+    @interface List{
+        ZipCode[] value();
+    }
+
 }
