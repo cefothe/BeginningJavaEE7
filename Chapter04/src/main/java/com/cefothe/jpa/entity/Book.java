@@ -19,7 +19,7 @@ import javax.validation.constraints.Size;
 })
 public class Book {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     private Long id;
 

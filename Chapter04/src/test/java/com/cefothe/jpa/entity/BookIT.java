@@ -6,6 +6,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.persistence.*;
+import javax.validation.ConstraintViolationException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -54,7 +55,7 @@ public class BookIT {
         assertEquals("The Hitchhiker's Guide to the Galaxy", book.getDescription());
     }
 
-    @Test(expected = RollbackException.class)
+    @Test(expected = ConstraintViolationException.class)
     public void shouldRaiseConstraintViolationCauseNullTitle() {
         Book book = new Book(null, 12.5F, "Null title, should fail",
                 "1-84023-742-2", 354, false);

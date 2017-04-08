@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
    <persistence-unit name="chapter04PU" transaction-type="RESOURCE_LOCAL">
       <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+      <class>com.cefothe.jpa.entity.Book</class>
       <properties>
+
          <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
          <property name="javax.persistence.jdbc.url"    value="jdbc:h2:mem:test" />
          <property name="javax.persistence.jdbc.user" value="sa" />
@@ -13,6 +18,13 @@
          <property name="show_sql" value="true"/>
          <property name="javax.persistence.validation.mode" value="ddl, callback"/>
          <property name="javax.persistence.sql-load-script-source" value="insert.sql"/>
+
+         <property name="javax.persistence.schema-generation.scripts.action"
+                   value="drop-and-create" />
+         <property name="javax.persistence.schema-generation.scripts.create-target"
+                   value="db-schema.jpa.ddl" />
+         <property name="javax.persistence.schema-generation.scripts.drop-target"
+                   value="db-schema.jpa.ddl" />
       </properties>
    </persistence-unit>
 </persistence>
